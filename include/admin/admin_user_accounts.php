@@ -30,7 +30,7 @@
 			<li><a href='admin_ann_posting.php'>Announcement Posting</a></li>
 			<li><a href='../logout.php'>Logout</a></li>
 			</ul>
-		</div>
+		</div>		
 		<?php include('admin_user_accounts_content.php'); ?>
 		<?php include('../footer.php'); ?>
 	</div>
