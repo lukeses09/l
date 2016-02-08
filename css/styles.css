@@ -1,0 +1,1240 @@
+body
+{
+    margin: 0px;
+    padding: 0px;
+    background-color: white;
+    width: 100%;
+    height: auto;
+    overflow: scroll;
+}
+
+#wrapper
+{
+    height: auto;
+    width: auto;
+    margin: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#header
+{
+    width: 100%;
+    height: 100px;
+    top:0px;
+    margin: 0px;
+    background-image: url("../images/banner.jpg");
+    background-size: 90% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 26px;
+    background-color: white;
+}
+
+#footer
+{
+	padding: 10px;
+	bottom:0;
+	right:0px;
+	left:0px;
+	position:fixed;
+	font-family: Arial;
+	text-align: center;
+	font-stretch: extra-condensed;
+	background-color: white;
+	padding: 5px;
+	text-align: center;
+	font-size: 14px;
+	background-color: white;
+	font-weight: lighter;
+	color: black;
+}
+
+#footer_content
+{
+width: 90%;
+margin-right: auto;
+margin-left: auto;
+text-align: center;
+border-top: 1px solid orange;
+padding: 10px;
+font-family: Arial;
+text-align: center;
+font-stretch: extra-condensed;
+background-color: white;
+font-size: 16px;
+}
+
+#cssmenu,
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul li a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  line-height: 1;
+  display: block;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#cssmenu:after,
+#cssmenu > ul:after {
+content: ".";
+display: block;
+clear: both;
+visibility: hidden;
+line-height: 0;
+height: 0;
+}
+
+#cssmenu
+{
+width: 90%;
+border-bottom: 1px inset orange;
+font-family: Raleway, sans-serif;
+line-height: 1;
+text-align: center;
+margin-left: auto;
+margin-right: auto;
+background: white;
+margin-left:auto;
+margin-right: auto;
+height: auto;
+color: #47c9af;
+text-align: center;
+font-stretch: ultra-condensed;
+}
+#cssmenu ul {
+  background: #ffffff;
+}
+#cssmenu > ul > li {
+  float: left;
+}
+#cssmenu.align-center > ul {
+  font-size: 0;
+  text-align: center;
+}
+#cssmenu.align-center > ul > li {
+  display: inline-block;
+  float: none;
+}
+#cssmenu.align-right > ul > li {
+  float: right;
+}
+#cssmenu.align-right > ul > li > a {
+  margin-right: 0;
+  margin-left: -4px;
+}
+#cssmenu > ul > li > a {
+  z-index: 0;
+  padding: 18px 25px 12px 25px;
+  font-size: 16px;
+  font-weight: bolder;
+  text-decoration: none;
+  color: black;
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -ms-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+  margin-right: -4px;
+}
+#cssmenu > ul > li.active > a,
+#cssmenu > ul > li:hover > a,
+#cssmenu > ul > li > a:hover {
+  color: #ffffff;
+}
+#cssmenu > ul > li > a:after {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  width: auto;
+  height: 120%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  content: "";
+  -webkit-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+  -webkit-transform: perspective(5px) rotateX(2deg);
+  -webkit-transform-origin: bottom;
+  -moz-transform: perspective(5px) rotateX(2deg);
+  -moz-transform-origin: bottom;
+  transform: perspective(5px) rotateX(2deg);
+  transform-origin: bottom;
+}
+#cssmenu > ul > li.active > a:after,
+#cssmenu > ul > li:hover > a:after,
+#cssmenu > ul > li > a:hover:after {
+  background: orange;
+}
+
+/*
+content
+*/
+#index_content
+{
+    height: auto;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    font-family: Raleway, sans-serif;
+    text-align: center;
+    margin-top: 60px;
+}
+
+#app_content
+{
+	height: auto;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    font-family: Raleway, sans-serif;
+    text-align: center;
+    margin-top: 60px;
+}
+
+#admin_home_content
+{
+    height: 100%;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    font-family: Raleway, sans-serif;
+    text-align: justify;
+}
+
+#admin_ann_posting
+{
+	height: 100%;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Raleway, sans-serif;
+    text-align: left;
+	margin-top: 20px;
+}
+
+#admin_posting1
+{
+	height: auto;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    font-family: Raleway, sans-serif;
+    text-align: center;
+	margin-top: 20px;
+}
+
+#sup_home_content
+{
+    height: auto;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    font-family: Raleway, sans-serif;
+    text-align: justify;
+}
+
+#acct_home_content
+{
+    height: 100%;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    font-family: Raleway, sans-serif;
+    text-align: justify;
+    font-stretch: ultra-condensed;
+    font-size: 16px;
+    
+}
+
+#contact
+{
+    margin-top: 10px;
+    height: auto;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    font-family: Raleway, sans-serif;
+    text-align: justify;
+    font-size: 16px;
+    padding: 10px;
+}
+
+#about
+{
+    margin-top: 10px;
+    height: auto;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    font-family: Raleway, sans-serif;
+    text-align: justify;
+    font-size: 14px;
+    padding: 10px;
+}
+
+#hr_home_content
+{
+    height: auto;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    font-family: Raleway, sans-serif;
+    text-align: justify;
+    font-stretch: ultra-condensed;
+    font-size: 16px;
+
+}
+
+#emp_profile_content
+{
+    height: 100%;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    font-family: Raleway, sans-serif;
+    text-align: justify;
+}
+
+#acct_payroll_content
+{
+    height: 100%;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+	margin-top: auto;
+    font-family: Raleway, sans-serif;
+    text-align: justify;
+}
+
+#acct_dtr
+{
+    height: ;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+	margin-top:50px;
+    font-family: Arial;
+    text-align: center;
+    border: 1px inset;
+    border-radius: 5px;
+    padding: 5px;
+    font-family: arial;
+    font-size: 15px;
+}
+#admin_useraccount_content
+{
+    height: auto;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    font-family: Raleway, sans-serif;
+    text-align: justify;
+    margin-top: 20px;
+}
+
+#hr_addemployee_content
+{
+    height: auto;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    font-family: Raleway, sans-serif;
+    text-align: justify;
+    margin-top: 20px;
+}
+
+#hr_editemployee_content
+{
+    height: auto;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    font-family: Raleway, sans-serif;
+    text-align: justify;
+    margin-top: 20px;
+}
+
+#hr_employeerecords_content
+{
+    height: 300px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    font-family: Raleway, sans-serif;
+    text-align: justify;
+    margin-top: 20px;
+}
+
+#hr_employeerecords_content_1
+{
+    height: 300px;
+    overflow-y: scroll;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    font-family: Raleway, sans-serif;
+    text-align: justify;
+    margin-top: 0px;
+}
+
+#admin_edituser_content
+{
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Raleway, sans-serif;
+    text-align: justify;
+    margin-top: 20px;
+}
+
+#admin_edituser_content1
+{
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Raleway, sans-serif;
+    text-align: justify;
+    margin-top: 20px;
+}
+
+#supeval_content
+{
+    width: 85%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Raleway, sans-serif;
+    text-align: justify;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+#emp_leave_content
+{
+	height: auto;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    font-family: Raleway, sans-serif;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#hr_applicants_content
+{
+	height: 100%;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    font-family: Raleway, sans-serif;
+    text-align: justify;
+    margin-top: 20px;
+
+}
+
+#hr_evalhis
+{
+    height: auto;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    font-family: Raleway, sans-serif;
+    text-align: justify;
+    font-size: 16px;    
+}
+
+#hr_evalhis1
+{
+    height: 280px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    font-family: Raleway, sans-serif;
+    text-align: justify;
+    font-size: 16px;
+    overflow-y: scroll
+}
+
+#admin_logtrails1
+{
+    height: 300px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    font-family: Raleway, sans-serif;
+    text-align: justify;
+    font-size: 16px;
+}
+
+#admin_logtrails
+{
+    height: 300px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    font-family: Raleway, sans-serif;
+    text-align: justify;
+    font-size: 16px;
+    overflow-y: scroll;
+}
+
+
+/*TABLES*/
+#tbl_user
+{
+    width: 100%;
+    font-size: 15px;
+    font-family: arial;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: scroll;
+
+    
+}
+
+#tbl_user td
+{
+width: auto;
+border-left: 1px outset;
+border-bottom: 1px inset;
+}
+
+#tbl_user th
+{
+    width: auto;
+    border-top: 1px outset;
+    border-bottom: 1px inset;
+    text-align: justify;
+    border-left: 2px outset;
+}
+
+
+#tbl_employee
+{
+    width: 100%;
+    font-size: 15px;
+    font-family: arial;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+#tbl_employee td
+{
+    padding: 1px;   
+}
+
+#tbl_employee th
+{
+    width: auto;
+    text-align: justify;
+    text-transform: uppercase;
+}
+
+#tbl_employee
+{
+    width: 100%;
+    font-size: 15px;
+    font-family: arial;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#tbl_evaluation td{
+    width: auto;
+    font-size: 14px;
+     border: 1px inset;
+}
+
+#tbl_evaluation th{
+    width: auto;
+    font-size: 14px;
+    border: 1px outset;
+}
+
+
+#tbl_posting
+{
+    width: 100%;
+    font-size: 15px;
+    font-family: arial;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#tbl_applicants
+{
+    width: 100%;
+    font-size: 15px;
+    font-family: arial;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px inset;
+    overflow: scroll;
+}
+
+#tbl_applicants td
+{
+    width: auto;
+    border-bottom: 1px inset;
+}
+
+#tbl_applicants th
+{
+    width: auto;
+    border-bottom: 1px inset;
+}
+
+#tbl_login
+{
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#tbl_login td
+{
+    width: auto;
+    border: 1px dotted orange;
+    padding: 1px;
+    text-align: center;
+}
+
+#tbl_leavec
+{
+    width: 70%;
+    padding: 1px;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: inset 1px;
+}
+
+#tbl_leavec td
+{
+    width: auto;
+    border-top: 1px outset;
+    padding: 2px 5px;
+    text-align: justify;
+}
+
+#tbl_manualleave
+{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: inset 1px;
+    font-size: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px inset;
+    overflow: scroll;
+}
+
+#tbl_manualleave td
+{
+    width: auto;
+    border-bottom: 1px inset;
+    text-align: justify;
+}
+
+#tbl_evaluation1
+{
+    width: 95%;
+    padding: 1px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 3px;
+    
+}
+
+#tbl_evaluation1 td
+{
+    width: auto;
+    border-bottom: 1px inset;
+
+    padding: 0px;
+    text-align: justify;
+        font-family: arial;
+    font-size: 14px;
+}
+
+#tbl_evaluation
+{
+    width: 95%;
+    padding: 1px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 3px;
+    
+}
+
+#tbl_evaluation td
+{
+    width: auto;
+    border-bottom: 1px inset;
+    border-left: 2px outset;
+    padding: 5px;
+    text-align: justify;
+    font-family: arial;
+    font-size: 14px;
+}
+
+#tbl_eval
+{
+    width: 100%;
+    font-size: 15px;
+    font-family: arial;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+
+#tbl_eval td
+{
+    width: auto;
+    border-bottom: 1px inset;
+    border-left: 2px outset;
+}
+
+#tbl_eval th
+{
+    text-align: justify;
+    border-bottom: 1px inset;
+    border-left: 2px outset;
+}
+
+
+#tbl_eval1
+{
+    width: 100%;
+    font-size: 15px;
+    font-family: arial;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px inset;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#tbl_eval1 td
+{
+    width: auto;
+    border-bottom: 1px inset;
+    border-left: 2px outset;
+}
+
+#tbl_eval1 th
+{
+    text-align: justify;
+    border-bottom: 1px inset;
+    border-left: 2px outset;
+}
+
+
+#tbl_payrolldetails
+{
+    width: 100%;
+    font-size: 15px;
+    font-family: arial;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px inset;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#tbl_payrolldetails td
+{
+    width: auto;
+    border-bottom: 1px inset;
+}
+
+#tbl_payrolldetails th
+{
+    text-align: justify;
+}
+
+/**/
+#input1
+{
+    border-radius: 5px;
+    height: 30px;
+    font-size: 20px;
+    width:250px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align:justify;
+    margin-top: 5px;
+    text-align: center;
+    outline-color: orange;
+    border: 1px inset;
+    font-size: 16px;
+    font-weight: lighter;
+        text-transform: capitalize;
+}
+
+#rank
+{
+    border-radius: 3px;
+    height: 25px;
+    font-size: 20px;
+    width:auto;
+    margin-right: auto;
+    margin-left: auto;
+    text-align:justify;
+    margin-top: 5px;
+    border: 1px inset;
+    font-size: 16px;
+    font-weight: lighter;
+    padding: 3px 5px;
+}
+
+#employee_posting
+{
+    border-radius: 5px;
+    height: auto;
+    font-size: 20px;
+    width:auto;
+    margin-right: auto;
+    margin-left: auto;
+    text-align:justify;
+    margin-top: 5px;
+    text-align: center;
+    outline-color: orange;
+    border: 1px inset;
+    font-size: 16px;
+    font-weight: lighter;
+}
+
+
+#input
+
+{
+    border-radius:5px;
+    font-stretch: ultra-condensed;
+    height: auto;
+    font-size: 16px;
+    width:200px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align:justify;
+    padding: 1px 10px;
+    border: 1px inset;
+    outline-color: orange;
+    text-transform: capitalize;
+}
+
+#input2
+
+{
+    border-radius:5px;
+    font-stretch: ultra-condensed;
+    height: auto;
+    font-size: 16px;
+    width:200px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align:justify;
+    border: 1px inset;
+    outline-color: orange;
+    text-transform: capitalize;
+
+}
+
+#search
+{
+    border-radius: 3px;
+    height: auto;
+    font-size: 16px;
+    width:250px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align:justify;
+    margin-top: 5px;
+    text-align: center;
+    outline-color: orange;
+    border: 1px inset;
+    font-size: 16px;
+    font-weight: lighter;
+}
+
+#btn1
+{
+    border-radius: 5px;
+    border: 1px outset;
+    padding: 11x;
+    width: 250px;
+    height: 30px;
+    background-color: white;
+    color: orange;
+    margin-top: 5px;
+    font-weight: lighter;
+}
+
+#btn
+{
+    border-radius: 5px;
+    border: 1px outset;
+    padding: 2px;
+    width: 210px;
+    height: 30px;
+    background-color: white;
+    color: orange;
+}
+
+#btnCom
+{
+    border-radius: 5px;
+    border: 1px outset;
+    padding: 2px;
+    width: 200px;
+    height: 30px;
+    background-color: white;
+    color: orange;
+}
+
+#upload_resume
+{
+    border-radius: 5px;
+    border: 1px outset;
+    padding: 2px;
+    width: 200px;
+    height: 30px;
+    background-color: white;
+    color: orange;
+}
+
+#btnsearch
+{
+    border-radius: 3px;
+    border: 1px outset;
+    width: auto;
+    height: 25px;
+    background-color: white;
+    color: orange;
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+#tin1
+
+{
+	border-radius: 100px;
+	font-stretch: ultra-condensed;
+	height: auto;
+	font-size: 16px;
+	width:65px;
+	margin-right: auto;
+	margin-left: auto;
+	text-align:center;
+	object-fit: cover;
+	border: 1px inset;
+}
+
+#pagibig
+{
+	border-radius: 5px;
+	font-stretch: ultra-condensed;
+	height: auto;
+	font-size: 16px;
+	width:63px;
+	margin-right: auto;
+	margin-left: auto;
+	text-align:center;
+	object-fit: cover;
+	border: 1px inset;
+}
+
+#phealth1
+{
+	border-radius: 100px;
+	font-stretch: ultra-condensed;
+	height: auto;
+	font-size: 16px;
+	width:47px;
+	margin-right: auto;
+	margin-left: auto;
+	text-align:center;
+	object-fit: cover;
+	border: 1px inset;
+}
+
+#phealth2
+{
+	border-radius: 100px;
+	font-stretch: ultra-condensed;
+	height: auto;
+	font-size: 16px;
+	width:100px;
+	margin-right: auto;
+	margin-left: auto;
+	text-align:center;
+	object-fit: cover;
+	-webkit-appearance: none;
+	appearance: none;
+	-moz-appearance: none;
+	border: 1px inset;
+}
+
+
+#btneval
+{
+    text-align: right;
+}
+
+#leave
+{
+	border-radius: 3px;
+	font-stretch: ultra-condensed;
+	height: auto;
+	font-size: 25px;
+	width:350px;
+	margin-right: auto;
+	margin-left: auto;
+	text-align:center;
+	object-fit: cover;
+	-webkit-appearance: none;
+	appearance: none;
+	-moz-appearance: none;
+	border: 1px inset;	
+}
+
+#leave1
+{
+    border-radius: 3px;
+    border: 1px outset;
+    width: 350px;
+    height: auto;
+	font-size: 25px;
+    background-color: white;
+    color: orange;
+	margin-top: 5px;
+}
+
+#employeeid, #txt_dept, #txt_pos, #txt_employeename, #txt_status, #pay_period,
+#days_work, #overtimepay, #txt_basicpay, #one_payroll, #txt_daily, #txt_hourly,
+#txt_tax, #txt_pagibig, #txt_philhealth, #txt_sss, #txt_monthly
+{
+	border-radius:5px;
+    font-stretch: ultra-condensed;
+    height: auto;
+    font-size: 16px;
+    width:200px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align:justify;
+    border: 1px dotted;
+    outline-color: orange;
+	background-color: white;
+	padding: 0px 10px;
+        text-transform: capitalize;
+}
+#btn2
+{
+    border-radius: 5px;
+    border: 1px outset;
+    width: auto;
+    height: 25px;
+    background-color: white;
+    color: orange;
+    margin-top: 5px;
+    font-weight: lighter;
+}
+/**/
+
+#ta
+{
+    text-align: left;
+	resize: none;
+}
+
+#ta_ann
+{
+    text-align: left;
+	resize: none;
+	width: 400px;
+	height: 100px;
+	font-size: 16px;
+	font-family: arial;
+	padding: 10px;
+	border: orange 1px inset;
+	outline: none;
+	border-radius: 5px;
+}
+
+#tareason
+{
+    text-align: left;
+	resize: none;
+	width: 200px;
+	height: 50px;
+	font-size: 16px;
+	font-family: arial;
+	padding: 10px;
+	border: 1px inset;
+	outline: none;
+	border-radius: 5px;
+}
+
+#tf
+{
+	border: grey 5px dotted;
+	outline: none;
+	border-radius: 5px;
+}
+
+#evalta
+{
+    width: 250px;
+    height: 100px;
+    size:  auto;
+    padding: 5px;
+    font-family: arial;
+    font-size: 12px;
+}
+
+#time
+{
+    font-size: 16px;
+    font-weight: bolder;
+    font-family: arial;
+}
+
+#hr
+{
+    width: 70%;
+}
+
+#acct_payroll_create_content
+{
+    height: auto;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    font-family: Raleway, sans-serif;
+    margin-top: 20px;    
+}
+
+#tbl_create_payroll
+{
+    width: 80%;
+    font-size: 15px;
+    font-family: arial;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px inset;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#tbl_create_payroll td
+{
+    width: auto;
+    border-bottom: 1px inset;
+}
+
+#tbl_create_payroll th{
+    text-align: justify;
+    font-family: arial;
+        border-bottom: 1px inset;
+}
+
+#payroll_input
+{
+    border: 0px inset;
+    width: 200px;
+    font-family: arial;
+    font-size: 14px;
+    padding: 3PX;
+    border-radius: 5px;
+}
+
+#payroll_input1
+{
+    border: 1px inset;
+    width: 200px;
+    font-family: arial;
+    font-size: 14px;
+    padding: 3px;
+    border-radius: 3px;
+}
+
+#dtrid
+{
+    border: 1px inset;
+    width: 250px;
+    font-family: arial;
+    font-size: 20px;
+    padding: 10px 5px;
+    border-radius: 0px;
+    text-align: center;
+}
+
+#backup
+{
+    border: 1px inset;
+    width: 300px;
+    font-family: arial;
+    font-size: 16px;
+    padding: 10px 5px;
+    border-radius: 3px;
+    text-align: center;
+}
+
+#backup1
+{
+    border-radius: 5px;
+    border: 1px outset;
+    width: 300px;
+    height: 40px;
+    background-color: white;
+    color: orange;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+#recovery_content
+{
+    width: 85%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Raleway, sans-serif;
+    text-align: justify;
+    margin-top: 20px;
+    font-size: 14px;
+}
