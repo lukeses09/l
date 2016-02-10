@@ -34,7 +34,7 @@
 					include('../../database/connection.php');
 					$EMPLOYEEID = $_SESSION['emp'];
 					?>
-					<input id="emp_id" type="text" value="<?php echo $EMPLOYEEID?>">
+					<input id="emp_id" type="hidden" value="<?php echo $EMPLOYEEID?>">
 					<?php
 
 					include('../../database/connection.php');
@@ -227,7 +227,9 @@
 					<label>End Date :</label>
 						<input type="date" class="form-control" id="lv_date_end">			
 				</div><!--col -6-->				
-			</div>			
+			</div>		
+			<br>
+			<button id="btn_save_lv" class="btn btn-success btn-block">SAVE</button>	
 		</div>
 	</div><!--col-xs-6-->
 </div>	
@@ -383,6 +385,28 @@ if (is_uploaded_file($_FILES['uploaded_file']['tmp_name']))
 	  //ajax end  
 	} //.load populate_lv_select
 
+	$('#btn_save_lv').click(function(){
+		var dataString = 'emp_id='+$('#emp_id').val()+'&lv_lc_id='+$('#lv_select').val()+'&lv_desc='+$('#lv_desc').val()+'&lv_start='+$('#lv_date_start').val()+'&lv_end='+$('#lv_date_end').val();
+	  //ajax now
+	  $.ajax ({
+	    type: "POST",
+	    url: "lv/insert_data.php",
+	    data: dataString, 
+	    cache: false, 
+	    success: function(s){
+	      if(s==0){
+	        //clear_lc_form();
+	        //load_table_lc();
+	        alert('Leave Filed Success');              
+	      }//.if
+	      else{
+	        //clear_lc_form();
+	        alert('Error: No Connection');         
+	      }//.else
+	    }  
+	  }); 
+	  //ajax end   
+	})
 </script>
 
  
