@@ -3,7 +3,7 @@
 
 $idKey = $_POST['idKey'];
 
-  $sql = " SELECT * FROM leave_credit WHERE lc_id = ? AND lc_status='active'";
+  $sql = " SELECT * FROM leave_credit WHERE lc_id = ?";
 
 $q = $conn->prepare($sql);
 $q -> execute(array($idKey));
