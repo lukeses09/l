@@ -230,9 +230,15 @@
 			</div>		
 			<br>
 			<button id="btn_save_lv" class="btn btn-success btn-block">SAVE</button>	
+			<div style="border:solid yellow 1px; margin-top:15px">
+				<h5>Note:</h5>
+				<p>For Maternity Leave: Start Date must not be bla bla
+				<br>
+				For Sick Leave: Start Date must be bla bla bla </p>
+			</div>
 		</div>
 	</div><!--col-xs-6-->
-</div>	
+</div>
 <hr>
 			
 			</div>
