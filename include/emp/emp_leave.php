@@ -10,7 +10,7 @@
 		<div id="cssmenu">
 			<ul>
 			<li><a href='emp_home.php'>My Profile</a></li>
-			<li><a href='#'>Announcement</a></li>
+			<li><a href='emp_ann.php'>Announcement</a></li>
 			<li class='active'><a href='emp_leave.php'>Leave Filing</a></li>
 			<li><a href='../logout.php'>Logout</a></li>
 			</ul>
@@ -20,6 +20,7 @@
 			<div id="leave_count">
 				<?php
 					session_start();
+					include('../../database/connection.php');
 					$EMPLOYEEID = $_SESSION['emp'];
 					
 					include('../../database/connection.php');

@@ -28,7 +28,7 @@
 			<li class='active'><a href='#'>DTR History</a></li>
 			<li><a href='hr_applicants.php'>Applicants</a></li>
 			<li><a href='hr_leaves.php'>Leaves</a></li>
-			<li><a href='#'>Announcement</a></li>
+			<li><a href='./hr_ann.php'>Announcement</a></li>
 			<li><a href='../logout.php'>Logout</a></li>
 			<li><a href='#' id="time"></a></li>
 			</ul>

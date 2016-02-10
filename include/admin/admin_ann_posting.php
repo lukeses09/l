@@ -23,28 +23,27 @@
 				<tr>
 					<td>General Announcement</td>
 					<td></td>
-					<td>Individual Announcement</td>
-					
+					<!--td>Individual Announcement</td-->	
 				</tr>
 				<tr>
 					<td></td>
 					<td></td>
-					<td>
+					<!--td>
 						<select id="employee_posting">
 							<option value="Angelo James Campollo">Angelo James Campollo</option>
 						</select>
-					</td>
+					</td-->
 				</tr>
 				<tr>
-					<td><textarea name="comment" id="ta_ann" style="resize:none;" maxlength="500" required></textarea></td>
+					<td colspan=2><textarea name="comment" id="ta_ann" style="resize:none;" maxlength="500" required></textarea></td>
 					<td></td>
-					<td><textarea name="comment1" id="ta_ann" style="resize:none;" maxlength="500"></textarea></td>
+					<!--td><textarea name="comment1" id="ta_ann" style="resize:none;" maxlength="500"></textarea></td-->
 				</tr>
-				
+		
 				<tr>
-					<td><input type="submit" name="submit" value="Post Announcement" id="btn" onclick='return confirm(/Are you sure you want to Post Announcement?/)'/></td>
+					<td><input type="submit" name="submit" value="Post Announcement" id="btn" onclick='return confirm("Are you sure you want to Post Announcement?")'/></td>
 					<td></td>
-					<td><input type="submit" name="submit1" value="Post Announcement" id="btn"/></td>
+					<!--td><input type="submit" name="submit1" value="Post Announcement" id="btn"/></td-->
 				</tr>
 				</table>
 		</form>
@@ -59,7 +58,8 @@
 	if(isset($_POST['submit']))
 	{
 		$announcement = $_POST['comment'];
-		$date		= date('Y-m-d', time());
+		$date		 = date('Y-m-d');
+	
 		
 		$sql = "INSERT INTO existdb.holidays_events(DATE_POST,ANNOUNCEMENT) VALUES('$date','$announcement')";
 		$result = mysql_query($sql, $con);
