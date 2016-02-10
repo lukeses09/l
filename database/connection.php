@@ -15,6 +15,6 @@ else
     die(mysql_error);
 }
 
-$conn = new PDO("mysql:host=localhost;dbname=existdb","root","");
+$conn = new PDO("mysql:host=localhost;dbname=existdb","root");
 
 ?>
