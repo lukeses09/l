@@ -1,7 +1,7 @@
 <?php
 $server="localhost";
 $username="root";
-$password="";
+$password="starwars";
 $database="existdb";
 
 $con = mysql_connect($server,$username,$password,$database);
