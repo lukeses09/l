@@ -9,7 +9,7 @@
   $browse = $q -> fetchAll();
   foreach($browse as $fetch)
   {
-    $output[] = array ($fetch['lc_id_name'],$fetch['lc_qty']);          
+    $output[] = array ($fetch['lc_id'],$fetch['lc_id_name'],$fetch['lc_qty']);          
   }         
 $conn = null;             
 

@@ -49,7 +49,7 @@
 
 		<div class="row">
 			<div class="col-xs-2"></div><!--left margin-->
-			<div class="col-xs-4" id="div_lc_name">
+			<div class="col-xs-3" id="div_lc_name">
 				<label>Leave Name </label>
 				<input id="lc_name" class="form-control">
 			</div><!---->			
@@ -59,8 +59,16 @@
 			</div><!---->					
 			<div class="col-xs-1">
 				<br>
-				<button id="btn_add_lc" title="Save Record to Leave Credit" class="btn bg-default">Save</button>				
+				<button id="btn_add_lc" title="Save Record to Leave Credit" class="btn-block btn btn-success">Save</button>				
 			</div>
+			<div class="col-xs-1">
+				<br>
+				<button id="btn_update_lc" title="Edit Record to Leave Credit" class="btn btn-primary">Update</button>				
+			</div>			
+			<div class="col-xs-1">
+				<br>
+				<button id="btn_clear_lc" title="Clear Everything" class="btn bg-default">Clear</button>				
+			</div>						
 			<div class="col-xs-2"></div><!--right margin-->		
 		</div><!--.row-->
 
@@ -72,9 +80,8 @@
 	          <thead>
 	            <tr>
 	            	<th>Name</th>
-	            	<th>Qty</th>
+	            	<th>Qty(DAYS)</th>
 	              <th style="width:10px"></th>    
-	              <th style="width:10px"></th>                    	                              
 	            </tr>
 	            <tbody></tbody>
 	          </thead>
@@ -96,7 +103,7 @@
 	        columnDefs: [
 	       { type: 'formatted-num', targets: 0 }
 	       ],       
-	      "aoColumnDefs": [ { "bSortable": false, "aTargets": [2,3] } ],
+	      "aoColumnDefs": [ { "bSortable": false, "aTargets": [2] } ],
 	      "aaSorting": []
 	    });  //Initialize the datatable department
 	//.tables   
@@ -112,12 +119,12 @@
 	    {
 	      table_lc.fnClearTable();        
 	      for(var i = 0; i < s.length; i++) 
-	      { 
+	      { 	      	
+	      	var a = s[i][0];
 	        table_lc.fnAddData
 	        ([
-	          s[i][0],s[i][1],
+	          s[i][1],s[i][2],
 	          '<button onclick="update_lc(this.value)" value='+s[i][0]+' class="btn btn-xs btn-default" title="Update Leave Credit">Update</button>',
-	          '<button id="delete_lc" class="btn btn-xs btn-default" title="Remove Leave Credit">Delete</button>',	          
 	        ],false); 
 	        table_lc.fnDraw();
 	      }       
@@ -128,35 +135,36 @@
 
   load_table_lc();
 
-  $('#btn_add_lc').click(function(){
-  	if(validate_lc()==false)
-  		alert('Please Fill up the Fields');
-  	else{	
-    //ajax now
-    $.ajax ({
-      type: "POST",
-      url: "admin_lc/insert_data.php",
-      data: 'lc_name='+$('#lc_name').val()+'&lc_qty='+$('#lc_qty').val(), 
-      cache: false, 
-      success: function(s){
-        if(s==0){
-          clear_lc_form();
-          load_table_lc();
-          alert('Leave Credit Record Added');              
-        }//.if
-        else{
-          clear_lc_form();
-          alert('Error: No Connection');         
-        }//.else
-      }  
-    }); 
-    //ajax end     		
-  	}//else INSERT TO DB
-  })
+$('#btn_add_lc').click(function(){
+	if($('#btn_update_lc').val()!='')
+			alert('Currently in EDIT MODE, Select CLEAR First');
+	else if(validate_lc()==false)
+		alert('Please Fill up the Fields');
+	else{	
+  //ajax now
+  $.ajax ({
+    type: "POST",
+    url: "admin_lc/insert_data.php",
+    data: 'lc_name='+$('#lc_name').val()+'&lc_qty='+$('#lc_qty').val(), 
+    cache: false, 
+    success: function(s){
+      if(s==0){
+        clear_lc_form();
+        load_table_lc();
+        alert('Leave Credit Record Added');              
+      }//.if
+      else{
+        clear_lc_form();
+        alert('Error: No Connection');         
+      }//.else
+    }  
+  }); 
+  //ajax end     		
+	}//else INSERT TO DB
+})
 
 function validate_lc(){
 	var err = true;
-
 	if($('#lc_name').val()==''){
 	  err = false ;
 	  $('#div_lc_name').addClass('has-error');
@@ -168,6 +176,10 @@ function validate_lc(){
 	  err = false ;
 	  $('#div_lc_qty').addClass('has-error');
 	}
+	else if($('#lc_qty').val()>100){
+	  err = false ;
+	  $('#div_lc_qty').addClass('has-error');
+	}	
 	else
 	  $('#div_lc_qty').removeClass('has-error');  
 
@@ -179,28 +191,58 @@ function clear_lc_form(){
 	$('#lc_qty').val('');
 	$('#div_lc_qty').removeClass('has-error');
 	$('#div_lc_name').removeClass('has-error');
+	$('#btn_update_lc').val('');
 }
 
-function update_lc(get){
+function update_lc(idKey){
   //ajax now
   $.ajax ({
     type: "POST",
     url: "admin_lc/fetch_data.php",
-    data: 'idKey='+get, 
+    data: 'idKey='+idKey, 
     dataType: 'json',
     cache: false, 
     success: function(s){
-    
 	    for(var i = 0; i < s.length; i++) {
-	    	alert(s[i][0]);
-	      $('#lc_name').val(s[i][0]);
-	      $('#lc_qty').val(s[i][0]);
+	      $('#lc_name').val(s[i][1]);
+	      $('#lc_qty').val(s[i][2]);
+	      $('#btn_update_lc').val(s[i][0]);
 	    }
     }  
   }); 
   //ajax end  
 }
 
+$('#btn_update_lc').click(function(){
+  	if(validate_lc()==false || $(this).val()=='')
+  		alert('Select Record to Update AND Fill up the Fields');
+  	else{	
+			var dataString = 'lc_id='+$(this).val()+'&lc_name='+$('#lc_name').val()+'&lc_qty='+$('#lc_qty').val();
+		    //ajax now
+		    $.ajax ({
+		      type: "POST",
+		      url: "admin_lc/update_data.php",
+		      data: dataString, 
+		      cache: false, 
+		      success: function(s){
+		        if(s==0){
+		          clear_lc_form();
+		          load_table_lc();
+		          alert('Leave Credit Record UPDATED');              
+		        }//.if
+		        else{
+		          clear_lc_form();
+		          alert('Error: No Connection');         
+		        }//.else
+		      }  
+		    }); 
+		    //ajax end   	  		
+  	}
+})
+
+$('#btn_clear_lc').click(function(){
+	clear_lc_form();
+})
 </script>
 
 
