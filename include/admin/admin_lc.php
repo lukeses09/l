@@ -190,11 +190,9 @@ function update_lc(get){
     dataType: 'json',
     cache: false, 
     success: function(s){
-    
 	    for(var i = 0; i < s.length; i++) {
-	    	alert(s[i][0]);
 	      $('#lc_name').val(s[i][0]);
-	      $('#lc_qty').val(s[i][0]);
+	      $('#lc_qty').val(s[i][1]);
 	    }
     }  
   }); 
