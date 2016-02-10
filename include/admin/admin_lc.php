@@ -49,13 +49,13 @@
 
 		<div class="row">
 			<div class="col-xs-2"></div><!--left margin-->
-			<div class="col-xs-4">
+			<div class="col-xs-4" id="div_lc_name">
 				<label>Leave Name </label>
-				<input class="form-control">
+				<input id="lc_name" class="form-control">
 			</div><!---->			
-			<div class="col-xs-3">
-				<label>Leave QTY </label>		
-				<input type="number" class="form-control">						
+			<div class="col-xs-3" id="div_lc_qty">
+				<label>Leave QTY (DAYS)</label>		
+				<input id="lc_qty" type="number" class="form-control">						
 			</div><!---->					
 			<div class="col-xs-1">
 				<br>
@@ -73,7 +73,8 @@
 	            <tr>
 	            	<th>Name</th>
 	            	<th>Qty</th>
-	              <th style="width:10px"></th>                    
+	              <th style="width:10px"></th>    
+	              <th style="width:10px"></th>                    	                              
 	            </tr>
 	            <tbody></tbody>
 	          </thead>
@@ -95,7 +96,7 @@
 	        columnDefs: [
 	       { type: 'formatted-num', targets: 0 }
 	       ],       
-	      "aoColumnDefs": [ { "bSortable": false, "aTargets": [2] } ],
+	      "aoColumnDefs": [ { "bSortable": false, "aTargets": [2,3] } ],
 	      "aaSorting": []
 	    });  //Initialize the datatable department
 	//.tables   
@@ -115,7 +116,8 @@
 	        table_lc.fnAddData
 	        ([
 	          s[i][0],s[i][1],
-	          '<button class="btn btn-xs btn-default" title="Update Leave Credit">Edit</button>',
+	          '<button onclick="update_lc(this.value)" value='+s[i][0]+' class="btn btn-xs btn-default" title="Update Leave Credit">Update</button>',
+	          '<button id="delete_lc" class="btn btn-xs btn-default" title="Remove Leave Credit">Delete</button>',	          
 	        ],false); 
 	        table_lc.fnDraw();
 	      }       
@@ -127,8 +129,77 @@
   load_table_lc();
 
   $('#btn_add_lc').click(function(){
-  	$('#admin_lc_modal').modal('show');
+  	if(validate_lc()==false)
+  		alert('Please Fill up the Fields');
+  	else{	
+    //ajax now
+    $.ajax ({
+      type: "POST",
+      url: "admin_lc/insert_data.php",
+      data: 'lc_name='+$('#lc_name').val()+'&lc_qty='+$('#lc_qty').val(), 
+      cache: false, 
+      success: function(s){
+        if(s==0){
+          clear_lc_form();
+          load_table_lc();
+          alert('Leave Credit Record Added');              
+        }//.if
+        else{
+          clear_lc_form();
+          alert('Error: No Connection');         
+        }//.else
+      }  
+    }); 
+    //ajax end     		
+  	}//else INSERT TO DB
   })
+
+function validate_lc(){
+	var err = true;
+
+	if($('#lc_name').val()==''){
+	  err = false ;
+	  $('#div_lc_name').addClass('has-error');
+	}
+	else
+	  $('#div_lc_name').removeClass('has-error');   
+
+	if($('#lc_qty').val()==''){
+	  err = false ;
+	  $('#div_lc_qty').addClass('has-error');
+	}
+	else
+	  $('#div_lc_qty').removeClass('has-error');  
+
+	return err; 
+}  
+
+function clear_lc_form(){
+	$('#lc_name').val('');
+	$('#lc_qty').val('');
+	$('#div_lc_qty').removeClass('has-error');
+	$('#div_lc_name').removeClass('has-error');
+}
+
+function update_lc(get){
+  //ajax now
+  $.ajax ({
+    type: "POST",
+    url: "admin_lc/fetch_data.php",
+    data: 'idKey='+get, 
+    dataType: 'json',
+    cache: false, 
+    success: function(s){
+    
+	    for(var i = 0; i < s.length; i++) {
+	    	alert(s[i][0]);
+	      $('#lc_name').val(s[i][0]);
+	      $('#lc_qty').val(s[i][0]);
+	    }
+    }  
+  }); 
+  //ajax end  
+}
 
 </script>
 
