@@ -1238,3 +1238,21 @@ border-bottom: 1px inset;
     margin-top: 20px;
     font-size: 14px;
 }
+
+/**announcement **/
+
+#ann_content
+{
+    height: 100%;
+    width: 80%;
+	margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    font-family: Raleway, sans-serif;
+    text-align: justify;
+}
+#div_ann_row{
+	
+	border-bottom: 1px solid #000000;
+}

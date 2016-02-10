@@ -10,7 +10,7 @@
 		<div id="cssmenu">
 			<ul>
 			<li class='active'><a href='emp_home.php'>My Profile</a></li>
-			<li><a href='#'>Announcement</a></li>
+			<li><a href='emp_ann.php'>Announcement</a></li>
 			<li><a href='emp_leave.php'>Leave Filing</a></li>
 			<li><a href='../logout.php'>Logout</a></li>
 			</ul>
