@@ -1,7 +1,7 @@
 <?php
 $server="localhost";
 $username="root";
-$password="starwars";
+$password="";
 $database="existdb";
 
 $con = mysql_connect($server,$username,$password,$database);
@@ -15,6 +15,6 @@ else
     die(mysql_error);
 }
 
-$conn = new PDO("mysql:host=localhost;dbname=existdb","root","starwars");
+$conn = new PDO("mysql:host=localhost;dbname=existdb","root","");
 
 ?>
