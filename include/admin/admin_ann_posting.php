@@ -14,8 +14,9 @@
 			<li><a href='admin_log_trails.php'>Log Trail</a></li>
 			<li><a href='admin_backup.php'>Backup and Recovery</a></li>
 			<li class='active'><a href='#'>Announcement Posting</a></li>
+			<li ><a href='admin_lc.php'>Leave Credits</a></li>						
 			<li><a href='../logout.php'>Logout</a></li>
-			</ul>
+			</ul>admin_backup
 		</div>
 		<div id="admin_ann_posting">
 		<form action="" method="post">

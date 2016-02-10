@@ -29,6 +29,7 @@
 			<li><a href='admin_log_trails.php'>Log Trail</a></li>
 			<li class='active'><a href='#'>Backup and Recovery</a></li>
 			<li><a href='admin_ann_posting.php'>Announcement Posting</a></li>
+			<li ><a href='admin_lc.php'>Leave Credits</a></li>						
 			<li><a href='../logout.php'>Logout</a></li>
 			<li><a href='#' id="time"></a></li>
 			</ul>

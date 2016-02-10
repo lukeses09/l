@@ -2,6 +2,15 @@
 <title>Employee Leave</title>
 <head>
     <link rel="stylesheet" type="text/css" href="../../css/styles.css"/>
+    <!-- Bootstrap 3.3.5 -->
+    <link href="../../plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />  
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="../../plugins/bootstrap/css/bootstrap.min.css">    
+    <!--script-->
+    <!-- jQuery 2.1.4 -->
+    <script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>    
+    <script src="../../plugins/datatables/jquery.dataTables.js" type="text/javascript"></script> 
+    <script src="../../plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>       
 </head>
 <body>
 	<form action="" method="post" enctype="multipart/form-data">
@@ -16,13 +25,18 @@
 			</ul>
 		</div>
         </div>
+
+
 		<div id="emp_leave_content">
 			<div id="leave_count">
 				<?php
 					session_start();
 					include('../../database/connection.php');
 					$EMPLOYEEID = $_SESSION['emp'];
-					
+					?>
+					<input id="emp_id" type="text" value="<?php echo $EMPLOYEEID?>">
+					<?php
+
 					include('../../database/connection.php');
 					$result = mysql_query("select * from existdb.emp_num_leave where EMPLOYEEID='$EMPLOYEEID'");
 					$row 	= mysql_fetch_array($result);
@@ -32,7 +46,7 @@
 					$EL =  $row['EMERGENCY']." Days";
 					$ML =  $row['MATERNITY']." Days";
 					
-					
+/*
 					echo "<table id='tbl_leavec'>";
 					echo "<tr>";
 						echo "<td><b>Credits:</b></td>";
@@ -98,8 +112,10 @@
 					echo "</tr>";
 					echo "</table>";
 					echo "<hr id='hr'>";
+*/					
 					
-					
+
+
 					if(isset($_POST['leave']))
 					{
 					$result = mysql_query("select * from existdb.employees where EMPLOYEEID='$EMPLOYEEID'");
@@ -170,6 +186,52 @@
 					}
 
 				?>
+<div class="row">
+	<div class="col-xs-7">
+		<h4>Leave List</h4>
+    <table id="table_lv" class="table table-condensed table-striped table-hover">
+      <thead>
+        <tr>
+        	<th>Leave</th>
+        	<th>Start</th>
+        	<th>End</th>
+        	<th>Reason</th>
+        	<th>Status</th>        	
+        </tr>
+        <tbody></tbody>
+      </thead>
+    </table>	
+	</div><!--col-xs-6-->
+	<!--<div class="col-xs-1"></div>-->
+	<div class="col-xs-5">
+		<h4>Current Credit: <text id="lv_current_credit"><font color="orange"></font></text></h4>	
+		<div>
+			<div class="row">
+				<div id="div_lv_select" class="col-sm-6 col-xs-12">
+					<label>Leave Type :</label>
+					<select onchange="chk_credit(this.value)" id="lv_select" class="form-control">
+						<option value="none">-- Select --</option>
+					</select>						
+				</div><!--col -6-->
+				<div id="div_lv_desc" class="col-sm-6 col-xs-12">
+					<label>Reason :</label>
+					<textarea id="lv_desc" class="form-control" style="resize:none"></textarea>
+				</div><!--col -6-->				
+			</div>
+			<div class="row">
+				<div id="div_lv_date_start" class="col-sm-6 col-xs-12">
+					<label>Start Date :</label>
+						<input type="date" class="form-control" id="lv_date_start">			
+				</div><!--col -6-->
+				<div id="div_lv_date_end" class="col-sm-6 col-xs-12">
+					<label>End Date :</label>
+						<input type="date" class="form-control" id="lv_date_end">			
+				</div><!--col -6-->				
+			</div>			
+		</div>
+	</div><!--col-xs-6-->
+</div>	
+<hr>
 			
 			</div>
 
@@ -244,6 +306,84 @@ if (is_uploaded_file($_FILES['uploaded_file']['tmp_name']))
 	</div>
 </body>
 </html>
+
+<script>
+	//tables
+	    var table_lv = $('#table_lv').dataTable({
+	        columnDefs: [
+	       { type: 'formatted-num', targets: 0 }
+	       ],       
+	      "aoColumnDefs": [ { "bSortable": false, "aTargets": [] } ],
+	      "aaSorting": []
+	    });  //Initialize the datatable department
+	//.tables  
+
+	function populate_lv_select(){ 
+	  //ajax now
+	  $.ajax ({
+	    type: "POST",
+	    url: "lv/populate_lv_select.php",
+	    dataType: 'json',      
+	    cache: false,
+	    success: function(s)
+	    {
+	      for(var i = 0; i < s.length; i++) 
+	      { 	      	
+          $('#lv_select').append('<option  id="opt'+s[i][0]+'" value="'+s[i][0]+'">'+s[i][1]+'</option>');	      	
+	      }       
+	    }  
+	  }); 
+	  //ajax end  
+	} //.load populate_lv_select
+
+	function load_table_lv(emp_id){ 
+	  //ajax now
+	  $.ajax ({
+	    type: "POST",
+	    url: "lv/load_table_lv.php",
+	    data: 'emp_id='+emp_id,
+	    dataType: 'json',
+	    cache: false,
+	    success: function(s)
+	    {
+	      table_lv.fnClearTable();        
+	      for(var i = 0; i < s.length; i++) 
+	      { 	      	
+	        table_lv.fnAddData
+	        ([
+	          s[i][1],s[i][2],s[i][3],s[i][4],s[i][5].toUpperCase(),
+	        ],false); 
+	        table_lv.fnDraw();
+	      }       
+	    }  
+	  }); 
+	  //ajax end  
+	} //.load table_lv
+
+	load_table_lv($('#emp_id').val());
+  populate_lv_select();
+
+	function chk_credit(lc_id){ 
+		var dataString = 'lc_id='+lc_id+'&emp_id='+$('#emp_id').val();
+	  //ajax now
+	  $.ajax ({
+	    type: "POST",
+	    url: "lv/fetch_credit.php",
+	    data: dataString,
+	    dataType: 'json',   
+	    cache: false,
+	    success: function(s)
+	    {
+	    	if(s!=null)
+		    	$('#lv_current_credit').text(s);
+		    else
+		    	$('#lv_current_credit').text('0');
+	    }  
+	  }); 
+	  //ajax end  
+	} //.load populate_lv_select
+
+</script>
 
  
  
