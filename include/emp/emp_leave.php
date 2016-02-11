@@ -112,7 +112,6 @@
 					echo "</tr>";
 					echo "</table>";
 					echo "<hr id='hr'>";
-*/					
 					
 
 
@@ -184,6 +183,7 @@
 						
 						
 					}
+*/					
 
 				?>
 <div class="row">
@@ -230,7 +230,7 @@
 			</div>		
 			<br>
 			<button id="btn_save_lv" class="btn btn-success btn-block">SAVE</button>	
-			<div style="border:solid yellow 1px; margin-top:15pxl text-align:justify">
+			<div style="border:solid yellow 1px; margin-top:15pxl text-align:left">
 				<h5>Note:</h5>
 				<p>For Maternity Leave:  File Leave after you came back from maternity
 				<br>
@@ -245,11 +245,12 @@
 <hr>
 			
 			</div>
-
+<!--
         <input type="file" name="uploaded_file" id="leave"><br>
         <input type="submit" value="Upload Leave" name="submit" id="leave1">
+        -->
 		</form>
-		
+		 
 		<?php
 // Check if a file has been uploaded
 if(isset($_POST['submit']))
