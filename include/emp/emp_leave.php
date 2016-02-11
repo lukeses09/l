@@ -230,11 +230,14 @@
 			</div>		
 			<br>
 			<button id="btn_save_lv" class="btn btn-success btn-block">SAVE</button>	
-			<div style="border:solid yellow 1px; margin-top:15px">
+			<div style="border:solid yellow 1px; margin-top:15pxl text-align:justify">
 				<h5>Note:</h5>
-				<p>For Maternity Leave: Start Date must not be bla bla
+				<p>For Maternity Leave:  File Leave after you came back from maternity
 				<br>
-				For Sick Leave: Start Date must be bla bla bla </p>
+				For Sick Leave:  File Leave minimum of 1 day after sickness
+				<br>
+				For Vacation Leave:  File Leave 2 weeks before the date of vacation
+				  </p>
 			</div>
 		</div>
 	</div><!--col-xs-6-->
